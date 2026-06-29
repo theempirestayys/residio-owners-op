@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Residio Owners</title>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<style>
+  :root{
+    /* white + peach dominate; terracotta is the ~20% baseline/liner accent */
+    --bg:#FFF8F3; --card:#FFFFFF; --soft:#FFF1E9; --line:#F2E2D6;
+    --peach:#FF9E7A; --peach-2:#FFC9B0; --peach-soft:#FFE7DA;
+    --accent:#C75B39; --ink:#33291F; --muted:#9A8C80; --faint:#C2B3A6;
+    --green:#3FA37A; --amber:#D7912B; --radius:14px;
+    --shadow:0 1px 2px rgba(120,80,50,.05),0 6px 22px rgba(120,80,50,.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;}
+  html,body{height:100%;}
+  body{background:var(--bg);color:var(--ink);overflow:hidden;-webkit-font-smoothing:antialiased;}
+  .app{display:grid;grid-template-columns:236px 1fr;height:100vh;}
+  .side{background:var(--card);border-right:1px solid var(--line);padding:18px 12px;display:flex;flex-direction:column;gap:3px;overflow-y:auto;}
+  .brand{display:flex;align-items:center;gap:11px;padding:6px 8px 18px;}
+  .logo{width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,var(--peach),var(--accent));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;box-shadow:var(--shadow);}
+  .brand b{font-size:15px;} .brand span{font-size:11px;color:var(--faint);display:block;}
+  .navlabel{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--faint);padding:14px 12px 6px;}
+  .nav a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:11px;color:var(--muted);font-size:14px;cursor:pointer;text-decoration:none;transition:.18s;}
+  .nav a .ic{width:18px;text-align:center;font-size:15px;}
+  .nav a:hover{background:var(--soft);color:var(--ink);}
+  .nav a.active{background:var(--peach-soft);color:var(--accent);}
+  .acct{margin-top:auto;display:flex;align-items:center;gap:10px;padding:11px;border-top:1px solid var(--line);}
+  .av{width:33px;height:33px;border-radius:50%;background:var(--peach-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;}
+  .main{display:flex;flex-direction:column;overflow:hidden;}
+  .top{display:flex;align-items:center;gap:12px;padding:14px 26px;border-bottom:1px solid var(--line);background:var(--card);}
+  .top h1{font-size:18px;font-weight:600;} .top .sub{font-size:12px;color:var(--faint);}
+  .spacer{flex:1;}
+  select{appearance:none;background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:8px 30px 8px 12px;font-size:13px;cursor:pointer;
+         background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%239A8C80' stroke-width='2'%3E%3Cpath d='M3 5l3 3 3-3'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 11px center;}
+  select:hover{border-color:var(--peach-2);}
+  .chip{display:inline-flex;align-items:center;gap:6px;background:var(--peach-soft);color:var(--accent);border-radius:20px;padding:7px 13px;font-size:12px;}
+  .pulse{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(63,163,122,.5);}70%{box-shadow:0 0 0 7px rgba(63,163,122,0);}100%{box-shadow:0 0 0 0 rgba(63,163,122,0);}}
+  .view{flex:1;overflow-y:auto;padding:24px 26px 70px;}
+  .view section{animation:rise .45s cubic-bezier(.2,.7,.2,1) both;}
+  @keyframes rise{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+  .grid{display:grid;gap:15px;} .g4{grid-template-columns:repeat(4,1fr);} .g3{grid-template-columns:repeat(3,1fr);} .g2{grid-template-columns:repeat(2,1fr);}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:17px;box-shadow:var(--shadow);}
+  .kpi .l{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:7px;}
+  .kpi .v{font-size:26px;font-weight:600;margin:9px 0 3px;color:var(--ink);}
+  .kpi .d{font-size:12px;} .up{color:var(--green);} .mut{color:var(--muted);} .warn{color:var(--amber);} .acc{color:var(--accent);}
+  .sechead{display:flex;align-items:center;justify-content:space-between;margin:26px 0 13px;}
+  .sechead h2{font-size:15px;font-weight:600;} .sechead .more{font-size:12px;color:var(--accent);cursor:pointer;}
+  .hero{display:grid;grid-template-columns:1.3fr 1fr;gap:15px;}
+  #three{width:100%;height:236px;border-radius:var(--radius);background:radial-gradient(circle at 65% 35%,var(--peach-soft),var(--card));border:1px solid var(--line);}
+  table{width:100%;border-collapse:collapse;font-size:13px;}
+  th{text-align:left;color:var(--faint);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.6px;padding:9px 11px;border-bottom:1px solid var(--line);}
+  td{padding:12px 11px;border-bottom:1px solid var(--line);} tr:hover td{background:var(--soft);}
+  .tag{font-size:11px;padding:3px 9px;border-radius:20px;display:inline-block;}
+  .t-green{background:rgba(63,163,122,.13);color:var(--green);} .t-amber{background:rgba(215,145,43,.14);color:var(--amber);}
+  .t-gray{background:var(--soft);color:var(--muted);} .t-peach{background:var(--peach-soft);color:var(--accent);}
+  .filters{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+  .fbtn{background:var(--card);border:1px solid var(--line);color:var(--muted);border-radius:20px;padding:6px 15px;font-size:12px;cursor:pointer;transition:.15s;}
+  .fbtn.on{background:var(--peach);color:#fff;border-color:var(--peach);}
+  .auto{display:flex;align-items:center;gap:13px;padding:15px;border-bottom:1px solid var(--line);}
+  .auto:last-child{border-bottom:none;}
+  .auto .ico{width:40px;height:40px;border-radius:11px;background:var(--peach-soft);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--accent);}
+  .auto .t{font-size:14px;font-weight:600;} .auto .s{font-size:12px;color:var(--muted);margin-top:2px;}
+  .sw{width:46px;height:26px;border-radius:20px;background:#E9DACE;position:relative;cursor:pointer;transition:.2s;flex-shrink:0;}
+  .sw.on{background:var(--green);} .sw::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.2);}
+  .sw.on::after{left:23px;}
+  .btn{background:var(--peach);color:#fff;border:none;border-radius:11px;padding:11px 17px;font-size:13px;font-weight:600;cursor:pointer;transition:.15s;}
+  .btn:hover{background:var(--accent);} .btn:active{transform:scale(.98);}
+  .btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line);}
+  .btn.ghost:hover{background:var(--soft);}
+  .bar{height:7px;border-radius:6px;background:var(--soft);overflow:hidden;}
+  .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--peach),var(--accent));}
+  input[type=range]{width:100%;accent-color:var(--peach);}
+  .pinput{background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:11px;width:100%;font-size:13px;}
+  .bubble{max-width:78%;padding:10px 13px;border-radius:14px;font-size:13px;line-height:1.5;margin-bottom:9px;}
+  .b-them{background:var(--soft);border-top-left-radius:4px;}
+  .b-me{background:var(--peach-soft);border-top-right-radius:4px;margin-left:auto;}
+  .grokstamp{font-size:11px;color:var(--accent);text-align:right;margin:-4px 0 9px;}
+  .addon{position:relative;overflow:hidden;}
+  .addon .price{font-size:22px;font-weight:600;color:var(--accent);} .addon .price small{font-size:12px;color:var(--muted);font-weight:400;}
+  .ribbon{position:absolute;top:13px;right:-30px;transform:rotate(45deg);background:var(--peach);color:#fff;font-size:10px;padding:3px 34px;}
+  .feat{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:7px;margin:7px 0;}
+  .feat .c{color:var(--green);}
+  #toast{position:absolute;bottom:18px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:11px 18px;border-radius:12px;font-size:13px;opacity:0;transition:.3s;pointer-events:none;z-index:50;}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+  .bnav{display:none;}
+  @media(max-width:880px){
+    .app{grid-template-columns:1fr;} .side{display:none;} .view{padding:18px 16px 86px;}
+    .g4{grid-template-columns:1fr 1fr;} .g3,.g2,.hero{grid-template-columns:1fr;} .top{padding:11px 14px;gap:8px;flex-wrap:wrap;}
+    .top h1{font-size:16px;}
+    .bnav{display:flex;position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--line);justify-content:space-around;padding:9px 0;z-index:30;}
+    .bnav a{color:var(--faint);font-size:10px;text-align:center;cursor:pointer;} .bnav a.active{color:var(--accent);} .bnav a .ic{display:block;font-size:19px;margin-bottom:2px;}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><div class="logo">R</div><div><b>Residio Owners</b><span>The Empire Stays</span></div></div>
+    <div class="navlabel">Overview</div>
+    <nav class="nav" id="nav">
+      <a data-route="dashboard"><span class="ic">⌂</span>Dashboard</a>
+      <a data-route="properties"><span class="ic">▦</span>Properties</a>
+      <a data-route="bookings"><span class="ic">▤</span>Bookings</a>
+      <a data-route="payouts"><span class="ic">◈</span>Payouts</a>
+      <div class="navlabel">Guest engine</div>
+      <a data-route="inbox"><span class="ic">✉</span>Inbox · Grok</a>
+      <a data-route="reviews"><span class="ic">★</span>Reviews</a>
+      <div class="navlabel">Grow</div>
+      <a data-route="automations"><span class="ic">⚡</span>Automations</a>
+      <a data-route="pricing"><span class="ic">₹</span>Dynamic pricing</a>
+      <a data-route="addons"><span class="ic">✦</span>Add-ons</a>
+      <a data-route="settings"><span class="ic">⚙</span>Settings</a>
+    </nav>
+    <div class="acct"><div class="av">MT</div><div><div style="font-size:13px;font-weight:600;">Meet</div><div style="font-size:11px;color:var(--faint);">Owner · 10 units</div></div></div>
+  </aside>
+
+  <div class="main">
+    <header class="top">
+      <div><h1 id="ttl">Dashboard</h1><div class="sub" id="sub">Portfolio overview</div></div>
+      <div class="spacer"></div>
+      <select id="period" onchange="setPeriod(this.value)"><option>Monthly</option><option>Yearly</option></select>
+      <select id="prop" onchange="setProp(this.value)"></select>
+      <span class="chip"><span class="pulse"></span>Live · Zapier</span>
+    </header>
+    <main class="view" id="view"></main>
+  </div>
+</div>
+<nav class="bnav" id="bnav">
+  <a data-route="dashboard"><span class="ic">⌂</span>Home</a>
+  <a data-route="bookings"><span class="ic">▤</span>Bookings</a>
+  <a data-route="automations"><span class="ic">⚡</span>Auto</a>
+  <a data-route="addons"><span class="ic">✦</span>Add-ons</a>
+  <a data-route="inbox"><span class="ic">✉</span>Inbox</a>
+</nav>
+<div id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const RZP_KEY = ""; /* paste your Razorpay key id here (rzp_live_… or rzp_test_…) to enable real checkout */
+const fmt = n => "₹" + Math.round(n).toLocaleString("en-IN");
+const state = { period:"Monthly", prop:"All" };
+const DB = {
+  properties:[
+    {n:"Bandra 2BHK",a:"Mumbai",beds:2,st:"Occupied",adr:10500,occ:88,rt:4.9,rev:241000},
+    {n:"Juhu Sea View",a:"Mumbai",beds:3,st:"Occupied",adr:15800,occ:82,rt:4.8,rev:312000},
+    {n:"Andheri Studio",a:"Mumbai",beds:1,st:"Cleaning",adr:6200,occ:74,rt:4.7,rev:138000},
+    {n:"Powai Lakeside",a:"Mumbai",beds:2,st:"Occupied",adr:9800,occ:80,rt:4.8,rev:205000},
+    {n:"Thane Studio",a:"Thane",beds:1,st:"Vacant",adr:5200,occ:69,rt:4.6,rev:108000},
+    {n:"Thane 2BHK",a:"Thane",beds:2,st:"Occupied",adr:8400,occ:77,rt:4.7,rev:176000},
+    {n:"Dombivli 1BHK",a:"Dombivli",beds:1,st:"Vacant",adr:4300,occ:64,rt:4.5,rev:84000},
+    {n:"Dombivli Loft",a:"Dombivli",beds:1,st:"Occupied",adr:5600,occ:71,rt:4.6,rev:112000},
+    {n:"Worli Highrise",a:"Mumbai",beds:3,st:"Occupied",adr:18900,occ:85,rt:4.9,rev:396000},
+    {n:"Colaba Heritage",a:"Mumbai",beds:2,st:"Cleaning",adr:13200,occ:79,rt:4.8,rev:268000},
+  ],
+  bookings:[
+    {g:"Rohan Shah",p:"Bandra 2BHK",ch:"Airbnb",in:"12 Jul",out:"15 Jul",amt:31500,st:"Confirmed"},
+    {g:"Priya Menon",p:"Thane Studio",ch:"MMT",in:"14 Jul",out:"16 Jul",amt:12800,st:"Confirmed"},
+    {g:"Aditya Rao",p:"Juhu Sea View",ch:"Booking",in:"15 Jul",out:"19 Jul",amt:63200,st:"Confirmed"},
+    {g:"Inquiry",p:"Dombivli 1BHK",ch:"Airbnb",in:"20 Jul",out:"22 Jul",amt:8600,st:"Inquiry"},
+    {g:"Sara Khan",p:"Worli Highrise",ch:"Direct",in:"18 Jul",out:"21 Jul",amt:56700,st:"Confirmed"},
+    {g:"Isha Verma",p:"Colaba Heritage",ch:"MMT",in:"24 Jul",out:"27 Jul",amt:39600,st:"Confirmed"},
+  ],
+  payouts:[{d:"4 Jul",amt:84000,st:"Scheduled",src:"Airbnb + MMT"},{d:"11 Jul",amt:61200,st:"Scheduled",src:"Booking.com"},{d:"27 Jun",amt:72400,st:"Paid",src:"Airbnb"},{d:"20 Jun",amt:68900,st:"Paid",src:"MMT + Direct"}],
+  threads:[{g:"Rohan Shah",p:"Bandra 2BHK",last:"3pm works, thanks!"},{g:"Aditya Rao",p:"Juhu Sea View",last:"Is early check-in possible?"},{g:"Sara Khan",p:"Worli Highrise",last:"Sent the smart-lock code ✓"}],
+  reviews:[{g:"Megha P.",p:"Powai Lakeside",rt:5,txt:"Spotless and a great host. Highly recommend!",reply:"Thank you so much, Megha! It was a pleasure hosting you — come back anytime."},{g:"Karan T.",p:"Andheri Studio",rt:4,txt:"Good stay, AC was a bit noisy.",reply:"Thanks for the honest note, Karan! We've serviced the AC already — hope to host you again."}],
+  automations:[{ic:"⌯",t:"Guest replies",s:"Grok · replied 2m ago",on:true},{ic:"₹",t:"Dynamic pricing",s:"daily · synced 6:00 am",on:true},{ic:"▦",t:"Calendar sync",s:"Airbnb · MMT · Booking.com",on:true},{ic:"★",t:"Review replies",s:"your tone · 4 pending",on:true},{ic:"%",t:"Promotions",s:"paused",on:false},{ic:"✦",t:"SEO refresh",s:"weekly · last Sun",on:true}],
+  addons:[
+    {t:"Smart Pricing AI",p:799,best:true,d:"Daily demand-based pricing from live web research across OTAs.",f:["Web demand signals","Event + holiday surge","Auto-applied via Zapier"]},
+    {t:"Auto-Reviews+ (Grok)",p:499,d:"Tone-matched review replies drafted and posted automatically.",f:["Your voice, every time","Sentiment alerts","Airbnb + MMT + Booking"]},
+    {t:"Guest Concierge 24/7",p:999,d:"Grok answers guests instantly, escalates only when needed.",f:["Instant multilingual replies","Smart-lock code automation","Manager escalation"]},
+  ],
+  revenue:[178,192,205,221,214,241]
+};
+const months=["Jan","Feb","Mar","Apr","May","Jun"];
+let filter="All";
+const tagClass=s=>({Confirmed:"t-green",Paid:"t-green",Occupied:"t-green",Scheduled:"t-peach",Pending:"t-amber",Cleaning:"t-amber",Inquiry:"t-gray",Vacant:"t-gray"}[s]||"t-gray");
+const chTag=c=>({Airbnb:"t-peach",MMT:"t-amber",Booking:"t-peach",Direct:"t-green"}[c]||"t-gray");
+function toast(m){const t=document.getElementById("toast");t.textContent=m;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),2600);}
+function subscribe(name,amt){
+  if(!RZP_KEY){toast("Connect Razorpay to enable checkout — add your key id");return;}
+  const rzp=new Razorpay({key:RZP_KEY,amount:amt*100,currency:"INR",name:"Residio Owners",description:name+" · monthly",theme:{color:"#FF9E7A"},handler:()=>toast("Subscribed to "+name)});
+  rzp.open();
+}
+
+function selScope(){ return state.prop==="All"?DB.properties:DB.properties.filter(p=>p.n===state.prop); }
+function totals(){
+  const ps=selScope();
+  const mult=state.period==="Yearly"?11:1;
+  const rev=ps.reduce((a,p)=>a+p.rev,0)*mult;
+  const occ=Math.round(ps.reduce((a,p)=>a+p.occ,0)/ps.length);
+  const adr=Math.round(ps.reduce((a,p)=>a+p.adr,0)/ps.length);
+  return {rev,occ,adr,n:ps.length};
+}
+function sparkSVG(data,mult){
+  const d=data.map(v=>v*1000*mult),w=340,h=130,max=Math.max(...d),min=Math.min(...d)*0.92;
+  const pts=d.map((v,i)=>[22+i*(w-44)/(d.length-1),h-16-((v-min)/(max-min))*(h-40)]);
+  const line=pts.map((p,i)=>(i?"L":"M")+p[0].toFixed(0)+" "+p[1].toFixed(0)).join(" ");
+  const area=line+` L${pts[pts.length-1][0].toFixed(0)} ${h-14} L22 ${h-14} Z`;
+  const dots=pts.map(p=>`<circle cx="${p[0].toFixed(0)}" cy="${p[1].toFixed(0)}" r="3.2" fill="#C75B39"/>`).join("");
+  const labs=months.map((m,i)=>`<text x="${(22+i*(w-44)/(d.length-1)).toFixed(0)}" y="${h-2}" fill="#C2B3A6" font-size="9" text-anchor="middle">${m}</text>`).join("");
+  return `<svg viewBox="0 0 ${w} ${h}" width="100%" height="${h}"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF9E7A" stop-opacity=".28"/><stop offset="1" stop-color="#FF9E7A" stop-opacity="0"/></linearGradient></defs><path d="${area}" fill="url(#g)"/><path d="${line}" fill="none" stroke="#FF9E7A" stroke-width="2.4"/>${dots}${labs}</svg>`;
+}
+const ROUTES={
+  dashboard:{t:"Dashboard",s:"Portfolio overview",r:viewDashboard},
+  properties:{t:"Properties",s:"10 units · Mumbai · Thane · Dombivli",r:viewProperties},
+  bookings:{t:"Bookings",s:"Across all channels",r:viewBookings},
+  payouts:{t:"Payouts",s:"Scheduled and history",r:viewPayouts},
+  inbox:{t:"Inbox · Grok",s:"Guest messaging, auto-drafted",r:viewInbox},
+  reviews:{t:"Reviews",s:"Tone-matched replies",r:viewReviews},
+  automations:{t:"Automations",s:"Zapier · live zaps",r:viewAutomations},
+  pricing:{t:"Dynamic pricing",s:"Daily, demand-based",r:viewPricing},
+  addons:{t:"Add-ons",s:"Powered by Razorpay",r:viewAddons},
+  settings:{t:"Settings",s:"Account and security",r:viewSettings},
+};
+function kpi(l,val,d,cls,ic){return `<div class="card kpi"><div class="l"><span>${ic}</span>${l}</div><div class="v">${val}</div><div class="d ${cls}">${d}</div></div>`;}
+function viewDashboard(){
+  const T=totals(),mult=state.period==="Yearly"?11:1;
+  const scope=state.prop==="All"?`${T.n} properties`:state.prop;
+  return `<section>
+    <div class="hero">
+      <div class="card" style="display:flex;flex-direction:column;">
+        <div class="sub" style="color:var(--muted);font-size:12px;">Live portfolio · ${state.period}</div>
+        <div style="font-size:30px;font-weight:600;margin:6px 0;">${scope}</div>
+        <div style="color:var(--muted);font-size:13px;line-height:1.7;">${T.occ}% occupancy · ${fmt(T.rev)} ${state.period.toLowerCase()} revenue. Automations run guest replies, pricing, calendar sync and reviews in the background.</div>
+        <div style="margin-top:auto;display:flex;gap:8px;padding-top:14px;"><button class="btn" onclick="go('bookings')">View bookings</button><button class="btn ghost" onclick="go('addons')">Add-ons</button></div>
+      </div>
+      <div id="three"></div>
+    </div>
+    <div class="grid g4" style="margin-top:15px;">
+      ${kpi("Revenue · "+state.period.toLowerCase(),fmt(T.rev),"+12% vs last","up","◷")}
+      ${kpi("Occupancy",T.occ+"%","next 30 days","mut","▦")}
+      ${kpi("Avg daily rate",fmt(T.adr),"per booked night","mut","◈")}
+      ${kpi("Open tasks","3","1 cleaning due","warn","✓")}
+    </div>
+    <div class="sechead"><h2>Revenue — last 6 ${state.period==="Yearly"?"years":"months"}</h2><span class="more" onclick="go('payouts')">Payouts →</span></div>
+    <div class="card">${sparkSVG(DB.revenue,mult)}</div>
+    <div class="sechead"><h2>Today</h2><span class="more" onclick="go('bookings')">All bookings →</span></div>
+    <div class="card" style="padding:5px 0;">
+      <div class="auto"><div class="ico" style="color:var(--green);">⇲</div><div style="flex:1;"><div class="t">Check-in · Bandra 2BHK</div><div class="s">Rohan Shah · 3:00 pm · code auto-sent</div></div><span class="tag t-green">Ready</span></div>
+      <div class="auto"><div class="ico">⇱</div><div style="flex:1;"><div class="t">Checkout · Thane Studio</div><div class="s">11:00 am · cleaning auto-scheduled</div></div><span class="tag t-amber">Cleaning</span></div>
+    </div></section>`;
+}
+function viewProperties(){return `<section><div class="grid g3">${DB.properties.map(p=>`<div class="card"><div style="display:flex;justify-content:space-between;align-items:flex-start;"><div><div style="font-weight:600;font-size:15px;">${p.n}</div><div style="color:var(--muted);font-size:12px;margin-top:2px;">${p.a} · ${p.beds} BR</div></div><span class="tag ${tagClass(p.st)}">${p.st}</span></div><div style="display:flex;gap:18px;margin:14px 0 8px;"><div><div style="font-size:11px;color:var(--faint);">ADR</div><div style="font-weight:600;">${fmt(p.adr)}</div></div><div><div style="font-size:11px;color:var(--faint);">Occupancy</div><div style="font-weight:600;">${p.occ}%</div></div><div><div style="font-size:11px;color:var(--faint);">Rating</div><div style="font-weight:600;">★ ${p.rt}</div></div></div><div class="bar"><i style="width:${p.occ}%"></i></div></div>`).join("")}</div></section>`;}
+function viewBookings(){
+  const chans=["All","Airbnb","MMT","Booking","Direct"];
+  const rows=DB.bookings.filter(b=>(filter==="All"||b.ch===filter)&&(state.prop==="All"||b.p===state.prop));
+  return `<section><div class="filters">${chans.map(c=>`<button class="fbtn ${filter===c?'on':''}" onclick="setFilter('${c}')">${c}</button>`).join("")}</div>
+    <div class="card" style="padding:4px 8px;"><table><thead><tr><th>Guest</th><th>Property</th><th>Channel</th><th>Dates</th><th>Amount</th><th>Status</th></tr></thead><tbody>${rows.map(b=>`<tr><td style="font-weight:600;">${b.g}</td><td>${b.p}</td><td><span class="tag ${chTag(b.ch)}">${b.ch}</span></td><td class="mut">${b.in} – ${b.out}</td><td style="font-weight:600;">${fmt(b.amt)}</td><td><span class="tag ${tagClass(b.st)}">${b.st}</span></td></tr>`).join("")||`<tr><td colspan="6" style="color:var(--muted);text-align:center;padding:24px;">No bookings for this filter.</td></tr>`}</tbody></table></div></section>`;
+}
+function viewPayouts(){const up=DB.payouts.filter(p=>p.st==="Scheduled"),hist=DB.payouts.filter(p=>p.st==="Paid"),tot=up.reduce((a,p)=>a+p.amt,0);
+  return `<section><div class="grid g3">${kpi("Scheduled",fmt(tot),"next 2 payouts","up","◈")}${kpi("Paid · June",fmt(141300),"2 payouts","mut","✓")}${kpi("Avg payout",fmt(71625),"last 4","mut","◷")}</div>
+  <div class="sechead"><h2>Upcoming</h2></div><div class="card" style="padding:5px 0;">${up.map(p=>`<div class="auto"><div class="ico">◈</div><div style="flex:1;"><div class="t">${fmt(p.amt)}</div><div class="s">${p.src}</div></div><span class="tag t-peach">${p.d}</span></div>`).join("")}</div>
+  <div class="sechead"><h2>History</h2></div><div class="card" style="padding:5px 0;">${hist.map(p=>`<div class="auto"><div class="ico" style="color:var(--green);">✓</div><div style="flex:1;"><div class="t">${fmt(p.amt)}</div><div class="s">${p.src} · ${p.d}</div></div><span class="tag t-green">Paid</span></div>`).join("")}</div></section>`;}
+function viewInbox(){return `<section><div class="grid g2" style="align-items:start;"><div class="card" style="padding:6px;">${DB.threads.map(t=>`<div class="auto" style="border:none;cursor:pointer;border-radius:11px;"><div class="av">${t.g.split(" ").map(x=>x[0]).join("")}</div><div style="flex:1;min-width:0;"><div style="display:flex;justify-content:space-between;"><span style="font-weight:600;font-size:13px;">${t.g}</span><span style="color:var(--green);font-size:11px;">Grok</span></div><div style="color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${t.last}</div><div style="color:var(--faint);font-size:11px;">${t.p}</div></div></div>`).join("")}</div>
+  <div class="card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;"><div><div style="font-weight:600;">Rohan Shah</div><div style="color:var(--muted);font-size:12px;">Bandra 2BHK · check-in tomorrow</div></div><span class="tag t-green">Grok auto</span></div><div class="bubble b-them">Hi! What time can I check in?</div><div class="bubble b-me">Hi Rohan! Check-in is from 3pm. I'll share the smart-lock code at noon. Need an early check-in?</div><div class="grokstamp">drafted by Grok · in your tone ✎</div><div class="bubble b-them">3pm works, thanks!</div><div style="display:flex;gap:8px;margin-top:12px;"><input class="pinput" placeholder="Reply…"/><button class="btn">Send</button></div></div></div></section>`;}
+function viewReviews(){return `<section>${DB.reviews.map(r=>`<div class="card" style="margin-bottom:14px;"><div style="display:flex;justify-content:space-between;"><div><span style="font-weight:600;">${r.g}</span> <span style="color:var(--muted);font-size:12px;">· ${r.p}</span></div><span class="tag t-peach">${"★".repeat(r.rt)}</span></div><div style="color:var(--muted);font-size:13px;margin:10px 0;">“${r.txt}”</div><div style="background:var(--soft);border-radius:11px;padding:12px;border-left:3px solid var(--peach);"><div style="font-size:11px;color:var(--accent);margin-bottom:5px;">Suggested reply · your tone</div><div style="font-size:13px;line-height:1.55;">${r.reply}</div></div><div style="display:flex;gap:8px;margin-top:12px;"><button class="btn" onclick="this.textContent='Posted ✓';this.disabled=true">Approve & post</button><button class="btn ghost">Edit</button></div></div>`).join("")}</section>`;}
+function viewAutomations(){return `<section><div class="card" style="display:flex;align-items:center;gap:14px;margin-bottom:15px;"><div class="ico" style="width:46px;height:46px;border-radius:12px;background:var(--peach-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:22px;">⚡</div><div style="flex:1;"><div style="font-weight:600;">Zapier automations</div><div style="color:var(--muted);font-size:13px;">5 of 6 zaps running across 10 properties · last event 2m ago</div></div><span class="chip"><span class="pulse"></span>Live</span></div>
+  <div class="card" style="padding:0;">${DB.automations.map((a,i)=>`<div class="auto"><div class="ico">${a.ic}</div><div style="flex:1;"><div class="t">${a.t}</div><div class="s" id="as${i}">${a.s}</div></div><div class="sw ${a.on?'on':''}" onclick="toggleAuto(${i})"></div></div>`).join("")}</div>
+  <div style="color:var(--faint);font-size:12px;margin-top:12px;">Toggles write to the live zap. Guest replies use Grok; pricing runs daily from web demand signals.</div></section>`;}
+function toggleAuto(i){DB.automations[i].on=!DB.automations[i].on;const sw=document.querySelectorAll(".sw")[i];sw.classList.toggle("on");document.getElementById("as"+i).textContent=DB.automations[i].on?"active":"paused";toast(DB.automations[i].t+(DB.automations[i].on?" turned on":" paused"));}
+function viewPricing(){return `<section>${DB.properties.slice(0,5).map((p,i)=>`<div class="card" style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;align-items:center;"><div style="font-weight:600;">${p.n}</div><div style="font-weight:600;color:var(--accent);" id="pr${i}">${fmt(p.adr)}</div></div><div style="color:var(--muted);font-size:12px;margin:4px 0 10px;">Base ${fmt(Math.round(p.adr*0.85))} · demand <span id="pm${i}">1.00×</span></div><input type="range" min="80" max="140" value="100" oninput="reprice(${i},${p.adr},this.value)"/><div style="display:flex;justify-content:space-between;color:var(--faint);font-size:11px;margin-top:4px;"><span>Off-peak</span><span>Auto · daily</span><span>Peak</span></div></div>`).join("")}</section>`;}
+function reprice(i,adr,v){const m=v/100;document.getElementById("pr"+i).textContent=fmt(adr*0.85*m);document.getElementById("pm"+i).textContent=m.toFixed(2)+"×";}
+function viewAddons(){return `<section>
+  <div class="card" style="display:flex;align-items:center;gap:14px;margin-bottom:16px;"><div class="ico" style="width:46px;height:46px;border-radius:12px;background:var(--peach-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:20px;">◈</div><div style="flex:1;"><div style="font-weight:600;">Add-ons · powered by Razorpay</div><div style="color:var(--muted);font-size:13px;">Upgrade any property. Billed monthly, cancel anytime.</div></div><button class="btn ghost" onclick="toast('Add your Razorpay key id in the code to connect')">Connect Razorpay</button></div>
+  <div class="grid g3">${DB.addons.map(a=>`<div class="card addon">${a.best?'<div class="ribbon">Popular</div>':''}<div style="font-weight:600;font-size:15px;">${a.t}</div><div style="color:var(--muted);font-size:12px;margin:6px 0 12px;line-height:1.5;">${a.d}</div><div class="price">${fmt(a.p)}<small> /mo</small></div><div style="margin:12px 0;">${a.f.map(f=>`<div class="feat"><span class="c">✓</span>${f}</div>`).join("")}</div><button class="btn" style="width:100%;" onclick="subscribe('${a.t}',${a.p})">Subscribe</button></div>`).join("")}</div>
+  <div style="color:var(--faint);font-size:12px;margin-top:14px;">Checkout opens Razorpay securely. Your keys stay server-side — the app never stores them.</div></section>`;}
+function viewSettings(){return `<section><div class="grid g2" style="align-items:start;"><div class="card"><div style="font-weight:600;margin-bottom:12px;">Profile</div><div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;"><div class="av" style="width:46px;height:46px;">MT</div><div><div style="font-weight:600;">Meet</div><div style="color:var(--muted);font-size:12px;">meet@theempirestays.com</div></div></div><label style="font-size:12px;color:var(--muted);">Display name</label><input class="pinput" value="Meet" style="margin:6px 0 12px;"/><label style="font-size:12px;color:var(--muted);">Payout account</label><input class="pinput" value="HDFC ••• 4821" style="margin:6px 0 4px;"/></div>
+  <div class="card"><div style="font-weight:600;margin-bottom:12px;">Security</div>${["Biometric unlock","TLS + certificate pinning","Two-factor auth"].map((s,i)=>`<div class="auto" style="padding:12px 0;border-color:var(--line);"><div style="flex:1;"><div class="t" style="font-size:13px;">${s}</div><div class="s">${["Face ID / fingerprint","All API traffic encrypted","SMS + authenticator"][i]}</div></div><div class="sw on"></div></div>`).join("")}<div style="color:var(--faint);font-size:11px;margin-top:8px;">Secrets stay server-side. The app never stores API keys.</div></div></div></section>`;}
+
+let three={};
+function init3D(){
+  const el=document.getElementById("three"); if(!el||!window.THREE) return; el.innerHTML="";
+  const scene=new THREE.Scene();
+  const cam=new THREE.PerspectiveCamera(45,el.clientWidth/el.clientHeight,0.1,100); cam.position.z=4.3;
+  const rnd=new THREE.WebGLRenderer({antialias:true,alpha:true}); rnd.setSize(el.clientWidth,el.clientHeight); rnd.setPixelRatio(Math.min(devicePixelRatio,2)); el.appendChild(rnd.domElement);
+  const geo=new THREE.IcosahedronGeometry(1.55,1);
+  const wire=new THREE.LineSegments(new THREE.WireframeGeometry(geo),new THREE.LineBasicMaterial({color:0xff9e7a,transparent:true,opacity:.85}));
+  const grp=new THREE.Group(); grp.add(wire);
+  for(let i=0;i<10;i++){const s=new THREE.Mesh(new THREE.SphereGeometry(.07,10,10),new THREE.MeshBasicMaterial({color:0xc75b39}));const ph=Math.acos(-1+2*i/10),th=Math.sqrt(10*Math.PI)*ph;s.position.setFromSphericalCoords(1.6,ph,th);grp.add(s);}
+  scene.add(grp); three={rnd,scene,cam,grp};
+  (function loop(){if(!document.getElementById("three"))return;grp.rotation.y+=0.0045;grp.rotation.x+=0.0015;rnd.render(scene,cam);requestAnimationFrame(loop);})();
+}
+function fillProps(){const s=document.getElementById("prop");s.innerHTML='<option>All properties</option>'+DB.properties.map(p=>`<option>${p.n}</option>`).join("");}
+function setPeriod(v){state.period=v;render(cur);}
+function setProp(v){state.prop=(v==="All properties"?"All":v);render(cur);}
+function setFilter(c){filter=c;render("bookings");}
+function go(r){location.hash=r;}
+let cur="dashboard";
+function render(route){
+  cur=route; const R=ROUTES[route]||ROUTES.dashboard;
+  document.getElementById("ttl").textContent=R.t;
+  document.getElementById("sub").textContent=R.s;
+  document.getElementById("view").innerHTML=R.r();
+  document.querySelectorAll("[data-route]").forEach(a=>a.classList.toggle("active",a.dataset.route===route));
+  if(route==="dashboard")setTimeout(init3D,40);
+}
+document.querySelectorAll("[data-route]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();location.hash=a.dataset.route;}));
+window.addEventListener("hashchange",()=>render(location.hash.slice(1)||"dashboard"));
+fillProps();
+render(location.hash.slice(1)||"dashboard");
+</script>
+</body>
+</html>
