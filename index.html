@@ -3,8 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="theme-color" content="#F1F5F2" />
+<meta name="theme-color" content="#1F7A52" />
 <title>Residio</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="apple-touch-icon" href="icon.svg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Residio">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
@@ -290,6 +297,7 @@ function render(route){
 document.querySelectorAll(".tabbar a").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();location.hash=a.dataset.route;}));
 window.addEventListener("hashchange",()=>render(location.hash.slice(1)||"home"));
 render(location.hash.slice(1)||"home");
+if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));}
 fetch("data/live-bookings.json").then(r=>r.ok?r.json():null).then(d=>{if(d&&Array.isArray(d.bookings)){const live=d.bookings.filter(b=>b.ch&&b.ch!=="Demo");if(live.length){live.forEach(b=>{b.nights=b.nights||2;b.phone=b.phone||"—";b.id=b.id||"pending";});DB.bookings=live;render(cur);toast(live.length+" live bookings via iCal");}}}).catch(()=>{});
 </script>
 </body>
