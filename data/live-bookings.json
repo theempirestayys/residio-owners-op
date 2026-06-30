@@ -1,0 +1,547 @@
+{
+  "generated_utc": "2026-06-30 00:07:25Z",
+  "source": "iCal (no API key)",
+  "count": 212,
+  "bookings": [
+    {
+      "g": "Easter Day",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "1 Apr",
+      "out": "2 Apr",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Rama Navami",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "1 Apr",
+      "out": "2 Apr",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Hazarat Ali's Birthday",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "1 Dec",
+      "out": "2 Dec",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "New Year's Day",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "1 Jan",
+      "out": "2 Jan",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "New Year's Day",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "1 Jan",
+      "out": "2 Jan",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "New Year's Day",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "1 Jan",
+      "out": "2 Jan",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "New Year's Day",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "1 Jan",
+      "out": "2 Jan",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "New Year's Day",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "1 Jan",
+      "out": "2 Jan",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Holi",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "1 Mar",
+      "out": "2 Mar",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Chhat Puja (Pratihar Sashthi/Surya Sasht",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "1 Nov",
+      "out": "2 Nov",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Onam",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "1 Sep",
+      "out": "2 Sep",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Janmashtami (Smarta)",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "1 Sep",
+      "out": "2 Sep",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Janmashtami",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "1 Sep",
+      "out": "2 Sep",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Ganesh Chaturthi",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "1 Sep",
+      "out": "2 Sep",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Janmashtami",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "10 Aug",
+      "out": "11 Aug",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Ramzan Id (tentative)",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "10 Mar",
+      "out": "11 Mar",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Hazarat Ali's Birthday",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "10 Nov",
+      "out": "11 Nov",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Good Friday",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "11 Apr",
+      "out": "12 Apr",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Vasant Panchami",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "11 Feb",
+      "out": "12 Feb",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Maha Shivaratri",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "11 Feb",
+      "out": "12 Feb",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Holi",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "11 Mar",
+      "out": "12 Mar",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Bhai Duj",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "11 Nov",
+      "out": "12 Nov",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Chhat Puja (Pratihar Sashthi/Surya Sasht",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "11 Nov",
+      "out": "12 Nov",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "First Day of Sharad Navratri",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "11 Oct",
+      "out": "12 Oct",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Ganesh Chaturthi",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "11 Sep",
+      "out": "12 Sep",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Rama Navami",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "12 Apr",
+      "out": "13 Apr",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Hazarat Ali's Birthday",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "12 Dec",
+      "out": "13 Dec",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "First Day of Durga Puja Festivities",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "12 Oct",
+      "out": "13 Oct",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Onam",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "12 Sep",
+      "out": "13 Sep",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Easter Day",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "13 Apr",
+      "out": "14 Apr",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Janmashtami (Smarta)",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "13 Aug",
+      "out": "14 Aug",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Janmashtami",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "13 Aug",
+      "out": "14 Aug",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Raksha Bandhan",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "13 Aug",
+      "out": "14 Aug",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Rath Yatra",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "13 Jul",
+      "out": "14 Jul",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Ambedkar Jayanti",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "14 Apr",
+      "out": "15 Apr",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Ambedkar Jayanti",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "14 Apr",
+      "out": "15 Apr",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Gudi Padwa",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "14 Apr",
+      "out": "15 Apr",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Ambedkar Jayanti",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "14 Apr",
+      "out": "15 Apr",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Ugadi",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "14 Apr",
+      "out": "15 Apr",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Good Friday",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "14 Apr",
+      "out": "15 Apr",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Ambedkar Jayanti",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "14 Apr",
+      "out": "15 Apr",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Bakrid (tentative)",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "14 Apr",
+      "out": "15 Apr",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Ambedkar Jayanti",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "14 Apr",
+      "out": "15 Apr",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Makar Sankranti",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "14 Jan",
+      "out": "15 Jan",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Pongal",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "14 Jan",
+      "out": "15 Jan",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Makar Sankranti",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "14 Jan",
+      "out": "15 Jan",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Pongal",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "14 Jan",
+      "out": "15 Jan",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Muharram/Ashura (tentative)",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "14 May",
+      "out": "15 May",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Diwali/Deepavali",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "14 Nov",
+      "out": "15 Nov",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Ganesh Chaturthi",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "14 Sep",
+      "out": "15 Sep",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Rama Navami",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "15 Apr",
+      "out": "16 Apr",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Independence Day",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "15 Aug",
+      "out": "16 Aug",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Independence Day",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "15 Aug",
+      "out": "16 Aug",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Independence Day",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "15 Aug",
+      "out": "16 Aug",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Independence Day",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "15 Aug",
+      "out": "16 Aug",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Independence Day",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "15 Aug",
+      "out": "16 Aug",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Independence Day",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "15 Aug",
+      "out": "16 Aug",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Ramzan Id (tentative)",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "15 Feb",
+      "out": "16 Feb",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Pongal",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "15 Jan",
+      "out": "16 Jan",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Pongal",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "15 Jan",
+      "out": "16 Jan",
+      "amt": 0,
+      "st": "Confirmed"
+    }
+  ]
+}

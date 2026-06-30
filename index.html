@@ -242,6 +242,13 @@ function render(route){cur=route;const R=ROUTES[route]||ROUTES.dashboard;documen
 document.querySelectorAll("[data-route]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();location.hash=a.dataset.route;}));
 window.addEventListener("hashchange",()=>render(location.hash.slice(1)||"dashboard"));
 fillProps();render(location.hash.slice(1)||"dashboard");
+// Live iCal feed (no API key) — Autopilot writes data/live-bookings.json; use real bookings, ignore demo
+fetch("data/live-bookings.json").then(r=>r.ok?r.json():null).then(d=>{
+  if(d&&Array.isArray(d.bookings)){
+    const live=d.bookings.filter(b=>b.ch&&b.ch!=="Demo");
+    if(live.length){DB.bookings=live;const c=document.querySelector(".chip");if(c)c.innerHTML='<span class="pulse"></span>Live · iCal';render(cur);toast(live.length+" live bookings synced via iCal");}
+  }
+}).catch(()=>{});
 </script>
 </body>
 </html>

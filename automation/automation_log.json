@@ -1,0 +1,185 @@
+{
+  "generated_utc": "2026-06-30 00:08:01Z",
+  "actions": [
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "Easter Day",
+      "draft": "Hi Easter! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "Rama Navami",
+      "draft": "Hi Rama! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "Hazarat Ali's Birthday",
+      "draft": "Hi Hazarat! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "New Year's Day",
+      "draft": "Hi New! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "New Year's Day",
+      "draft": "Hi New! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "New Year's Day",
+      "draft": "Hi New! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "New Year's Day",
+      "draft": "Hi New! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "New Year's Day",
+      "draft": "Hi New! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "Holi",
+      "draft": "Hi Holi! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "Chhat Puja (Pratihar Sashthi/Surya Sasht",
+      "draft": "Hi Chhat! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "Onam",
+      "draft": "Hi Onam! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "Janmashtami (Smarta)",
+      "draft": "Hi Janmashtami! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "Janmashtami",
+      "draft": "Hi Janmashtami! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "Ganesh Chaturthi",
+      "draft": "Hi Ganesh! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "Janmashtami",
+      "draft": "Hi Janmashtami! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "Ramzan Id (tentative)",
+      "draft": "Hi Ramzan! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "Hazarat Ali's Birthday",
+      "draft": "Hi Hazarat! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "Good Friday",
+      "draft": "Hi Good! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "Vasant Panchami",
+      "draft": "Hi Vasant! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "Maha Shivaratri",
+      "draft": "Hi Maha! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "Holi",
+      "draft": "Hi Holi! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "Bhai Duj",
+      "draft": "Hi Bhai! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "Chhat Puja (Pratihar Sashthi/Surya Sasht",
+      "draft": "Hi Chhat! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "First Day of Sharad Navratri",
+      "draft": "Hi First! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 guest reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "guest": "Ganesh Chaturthi",
+      "draft": "Hi Ganesh! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
+    },
+    {
+      "automation": "Aria \u00b7 review reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "draft": "Thank you so much, Easter! It was a pleasure hosting you \u2014 come back anytime."
+    },
+    {
+      "automation": "Aria \u00b7 review reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "draft": "Thank you so much, Rama! It was a pleasure hosting you \u2014 come back anytime."
+    },
+    {
+      "automation": "Aria \u00b7 review reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "draft": "Thank you so much, Hazarat! It was a pleasure hosting you \u2014 come back anytime."
+    },
+    {
+      "automation": "Aria \u00b7 review reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "draft": "Thank you so much, New! It was a pleasure hosting you \u2014 come back anytime."
+    },
+    {
+      "automation": "Aria \u00b7 review reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "draft": "Thank you so much, New! It was a pleasure hosting you \u2014 come back anytime."
+    },
+    {
+      "automation": "Autopilot \u00b7 dynamic pricing",
+      "demand_multiplier": 1.38,
+      "basis": "60 live bookings"
+    }
+  ]
+}
