@@ -181,10 +181,12 @@ function barChart(data){const w=380,h=140,max=Math.max(...data),bw=(w-20)/data.l
 function metric(l,v,d,cls){return `<div class="metric"><div class="l">${l}</div><div class="v">${v}</div><div class="d ${cls||'mut'}">${d}</div></div>`;}
 function rowHTML(ic,icCls,title,sub,right,onclick){return `<div class="row" ${onclick?`onclick="${onclick}"`:''}><div class="ic ${icCls||''}">${ic}</div><div class="tx"><b>${title}</b>${sub?`<s>${sub}</s>`:''}</div>${right||''}<span class="chev">›</span></div>`;}
 
+function chanRows(){const mult=state.period==="Yearly"?11:1;const ch=[["Airbnb",610000,"var(--green)"],["MakeMyTrip",320000,"var(--amber)"],["Booking.com",280000,"var(--terra)"],["Direct",190000,"var(--green-deep)"]];return ch.map(function(x){return '<div style="padding:11px 14px;border-bottom:1px solid var(--hair);"><div style="display:flex;justify-content:space-between;"><span style="font-size:14px;font-weight:500;">'+x[0]+'</span><span style="font-size:14px;font-weight:500;">'+fmt(x[1]*mult)+'</span></div><div class="bar" style="margin-top:7px;"><i style="width:'+Math.round(x[1]/610000*100)+'%;background:'+x[2]+';"></i></div></div>';}).join("");}
 function viewHome(){const T=totals(),m=state.period==="Yearly"?11:1;
   return `<section><div class="ctrls"><select id="period" onchange="setPeriod(this.value)"><option>Monthly</option><option>Yearly</option></select><select id="prop" onchange="setProp(this.value)"></select></div>
   <div id="three"></div>
   <div class="mgrid">${metric("Revenue · "+state.period.toLowerCase(),fmt(T.rev),"+12%","up")}${metric("Occupancy",T.occ+"%","next 30 d","mut")}${metric("Avg daily rate",fmt(T.adr),"per night","mut")}${metric("Open tasks","3","1 cleaning","warn")}</div>
+  <div class="lhead">By channel</div><div class="list">${chanRows()}</div>
   <div class="lhead">Revenue · last 6 ${state.period==="Yearly"?"years":"months"}</div><div class="card">${spark(DB.revenue,m)}</div>
   <div class="lhead">Today</div><div class="list">${rowHTML("⇲","","Check-in · Bandra 2BHK","Rohan Shah · 3:00 pm",'<span class="tag t-green">Ready</span>',"go('booking-0')")}${rowHTML("⇱","a","Checkout · Thane Studio","11:00 am · cleaning auto",'<span class="tag t-amber">Cleaning</span>')}</div></section>`;}
 function viewBookings(){const chans=["All","Airbnb","MMT","Booking","Direct","Offline"];const rows=DB.bookings.filter(b=>(filter==="All"||b.ch===filter)&&(state.prop==="All"||b.p===state.prop));
