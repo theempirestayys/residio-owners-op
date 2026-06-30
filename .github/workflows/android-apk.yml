@@ -1,0 +1,59 @@
+name: Build Android APK
+
+# Builds an installable debug APK (WebView of the live Residio app) and publishes it
+# to a permanent Release so anyone can download + install on Android. No signing secrets.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'android/**'
+      - '.github/workflows/android-apk.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: android
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Set up Gradle 8.7
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+
+      - name: Build debug APK
+        run: gradle assembleDebug --no-daemon
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: residio-android-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+
+      - name: Publish APK to permanent Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: android-latest
+          name: Residio — Android APK
+          prerelease: true
+          files: android/app/build/outputs/apk/debug/app-debug.apk
+          body: >
+            Installable Android app (WebView of the live Residio PWA).
+            Download app-debug.apk, tap to install, allow "install from unknown apps".

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Residio" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:statusBarColor">#1F7A52</item>
+        <item name="android:windowBackground">#F3F7F3</item>
+    </style>
+</resources>
