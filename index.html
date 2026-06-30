@@ -46,7 +46,7 @@
   select{appearance:none;background:var(--group);border:1px solid var(--line);color:var(--ink);border-radius:11px;padding:8px 28px 8px 12px;font-size:14px;font-family:var(--sf);cursor:pointer;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%236B7B72' stroke-width='2'%3E%3Cpath d='M3 5l3 3 3-3'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;}
   /* iOS grouped inset list */
-  .list{background:var(--group);border-radius:16px;overflow:hidden;margin:8px 0 18px;box-shadow:0 1px 2px var(--hair);}
+  .list{background:var(--group);border-radius:22px;overflow:hidden;margin:8px 0 18px;box-shadow:0 1px 2px var(--hair);}
   .row{display:flex;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid var(--hair);cursor:pointer;transition:background .12s;}
   .row:last-child{border-bottom:none;} .row:active{background:var(--soft);}
   .row .ic{width:30px;height:30px;border-radius:8px;background:var(--green-soft);color:var(--green-deep);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
@@ -56,10 +56,10 @@
   .lhead{font-size:13px;color:var(--sec);text-transform:uppercase;letter-spacing:.4px;padding:2px 16px 2px;margin-top:6px;font-weight:500;}
   /* cards / metrics */
   .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 6px;}
-  .metric{background:var(--group);border-radius:16px;padding:14px;box-shadow:0 1px 2px var(--hair);}
+  .metric{background:var(--group);border-radius:22px;padding:14px;box-shadow:0 1px 2px var(--hair);}
   .metric .l{font-size:12.5px;color:var(--sec);} .metric .v{font-size:24px;font-weight:600;margin-top:5px;font-feature-settings:"tnum";} .metric .d{font-size:12px;margin-top:2px;}
   .up{color:var(--green);} .warn{color:var(--amber);} .acc{color:var(--terra);} .mut{color:var(--sec);}
-  .card{background:var(--group);border-radius:16px;padding:16px;box-shadow:0 1px 2px var(--hair);margin:8px 0 18px;}
+  .card{background:var(--group);border-radius:22px;padding:16px;box-shadow:0 1px 2px var(--hair);margin:8px 0 18px;}
   .tag{font-size:11.5px;padding:3px 9px;border-radius:20px;display:inline-block;}
   .t-green{background:var(--green-soft);color:var(--green-deep);} .t-amber{background:rgba(201,138,43,.15);color:var(--amber);}
   .t-gray{background:var(--soft);color:var(--sec);} .t-terra{background:var(--terra-soft);color:var(--terra);} .t-ink{background:#E6EDE8;color:var(--ink);}
@@ -94,7 +94,7 @@
   #toast{position:absolute;left:50%;bottom:calc(var(--tab) + 20px);transform:translateX(-50%) translateY(16px);background:rgba(16,24,20,.92);color:#fff;padding:11px 18px;border-radius:14px;font-size:13.5px;opacity:0;transition:.3s;pointer-events:none;z-index:20;backdrop-filter:blur(8px);}
   #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
   .hidden{display:none!important;}
-  #three{width:100%;height:150px;border-radius:16px;background:radial-gradient(circle at 60% 30%,var(--green-soft),rgba(255,255,255,.5));margin:8px 0 6px;}
+  #three{width:100%;height:150px;border-radius:22px;background:radial-gradient(circle at 60% 30%,var(--green-soft),rgba(255,255,255,.5));margin:8px 0 6px;}
   /* login */
   #login{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#1F7A52,#13533A 72%);padding:20px;}
   #login::after{content:"";position:absolute;inset:0;opacity:.16;background:radial-gradient(30% 40% at 20% 18%,#fff,transparent 60%),radial-gradient(34% 36% at 82% 80%,#fff,transparent 60%);}
@@ -227,7 +227,8 @@ function viewMore(){const items=[["properties","▦","Properties","6 units"],["a
   return `<section><div class="list">${items.map(([r,ic,t,s])=>rowHTML(ic,"",t,s,"","go('"+r+"')")).join("")}</div></section>`;}
 function viewSettings(){const sp=(session&&session.role!=="Staff")?staffPanel():"";
   return `<section><div class="lhead">Profile</div><div class="list">${rowHTML((session?session.name[0]:"M"),"",(session?session.name:"Meet"),(session?session.role:"Owner")+" · meet@theempirestays.com","")}</div>
-  <div class="lhead">Security</div><div class="list">${["Biometric unlock","TLS + certificate pinning","Two-factor auth"].map(s=>`<div class="row"><div class="tx"><b>${s}</b></div><div class="sw on"></div></div>`).join("")}</div>${sp}
+  <div class="lhead">Security</div><div class="list">${["Biometric unlock","TLS + certificate pinning","Two-factor auth"].map(s=>`<div class="row"><div class="tx"><b>${s}</b></div><div class="sw on"></div></div>`).join("")}</div>
+  <div class="lhead">Preferences</div><div class="list">${[["Push notifications",true],["Instant payout alerts",true],["Auto-accept verified guests",false],["Daily revenue digest",true],["WhatsApp guest replies",true],["Dark mode",false]].map(([l,on])=>`<div class="row"><div class="tx"><b>${l}</b></div><div class="sw ${on?'on':''}" onclick="this.classList.toggle('on');toast('${l} '+(this.classList.contains('on')?'on':'off'))"></div></div>`).join("")}</div>${sp}
   <button class="btn ghost" onclick="logout()" style="margin-top:8px;">Sign out</button></section>`;}
 function staffPanel(){const a=getStaffAccess();const items=[["properties","Properties"],["bookings","Bookings"],["money","Money / payouts"],["pricing","Dynamic pricing"],["addons","Add-ons"],["guests","Guest engine"],["automations","Automations"],["settings","Settings"]];
   return `<div class="lhead">Staff access control</div><div class="list">${items.map(([k,l])=>`<div class="row"><div class="tx"><b>${l}</b></div><div class="sw ${a[k]?'on':''}" onclick="toggleStaff('${k}')"></div></div>`).join("")}</div>`;}
