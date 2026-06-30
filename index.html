@@ -103,9 +103,27 @@
     .bnav{display:flex;position:fixed;bottom:0;left:0;right:0;justify-content:space-around;padding:9px 0;z-index:30;border-top:1px solid var(--line);}
     .bnav a{color:var(--faint);font-size:10px;text-align:center;cursor:pointer;} .bnav a.active{color:var(--accent);} .bnav a .ic{display:block;font-size:19px;margin-bottom:2px;}
   }
+  .hidden{display:none!important;}
+  #login{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:rgba(255,248,243,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+  #login .box{width:368px;max-width:90%;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:32px 30px;box-shadow:var(--shadow);text-align:center;animation:rise .4s ease both;}
+  #login .lg{width:58px;height:58px;border-radius:17px;background:linear-gradient(135deg,var(--peach),var(--accent));margin:0 auto 16px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);}
+  #login h2{font-size:23px;margin-bottom:3px;} #login .tag2{color:var(--muted);font-size:13px;margin-bottom:22px;}
+  #login input{margin-bottom:10px;text-align:left;}
+  #login .err{color:var(--accent);font-size:12px;min-height:16px;margin-top:2px;}
+  #login .hint{font-size:11px;color:var(--faint);margin-top:16px;line-height:1.7;border-top:1px solid var(--line);padding-top:14px;}
 </style>
 </head>
 <body>
+<div id="login"><div class="box">
+  <div class="lg"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 11 L12 3.6 L20.5 11"/><path d="M6.6 19 V12.2 a5.4 5.4 0 0 1 10.8 0 V19"/><path d="M6 19.2 H18"/><path d="M12 19 V12.6"/><circle cx="12" cy="8.4" r="1" fill="#fff" stroke="none"/></svg></div>
+  <h2 class="serif">Residio Owners</h2>
+  <div class="tag2">Sign in to your portfolio</div>
+  <input class="pinput" id="lu" placeholder="Username" autocomplete="username"/>
+  <input class="pinput" id="lp" type="password" placeholder="Password" autocomplete="current-password"/>
+  <button class="btn" style="width:100%;justify-content:center;margin-top:6px;" onclick="doLogin()">Sign in</button>
+  <div class="err" id="lerr"></div>
+  <div class="hint">Demo logins (change anytime): <b>master</b> / residio@master · <b>ceo</b> / residio@ceo · <b>staff</b> / residio@staff</div>
+</div></div>
 <div class="app">
   <aside class="side glass">
     <div class="brand"><div class="logo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 11 L12 3.6 L20.5 11"/><path d="M6.6 19 V12.2 a5.4 5.4 0 0 1 10.8 0 V19"/><path d="M6 19.2 H18"/><path d="M12 19 V12.6"/><circle cx="12" cy="8.4" r="1" fill="#fff" stroke="none"/></svg></div><div><b>Residio Owners</b><span>The Empire Stays</span></div></div>
@@ -238,9 +256,28 @@ function setFilter(c){filter=c;render("bookings");}
 function setCat(c){catFilter=c;render("bookings");}
 function go(r){location.hash=r;}
 let cur="dashboard";
-function render(route){cur=route;const R=ROUTES[route]||ROUTES.dashboard;document.getElementById("ttl").textContent=R.t;document.getElementById("sub").textContent=R.s;document.getElementById("view").innerHTML=R.r();document.querySelectorAll("[data-route]").forEach(a=>a.classList.toggle("active",a.dataset.route===route));if(route==="dashboard")setTimeout(init3D,40);}
+function render(route){if(typeof session!=="undefined"&&session&&ROLE_ROUTES[session.role]&&!ROLE_ROUTES[session.role].includes(route)){route="dashboard";if(location.hash.slice(1)&&location.hash.slice(1)!=="dashboard")location.hash="dashboard";}cur=route;const R=ROUTES[route]||ROUTES.dashboard;document.getElementById("ttl").textContent=R.t;document.getElementById("sub").textContent=R.s;document.getElementById("view").innerHTML=R.r();document.querySelectorAll("[data-route]").forEach(a=>a.classList.toggle("active",a.dataset.route===route));if(route==="dashboard")setTimeout(init3D,40);}
 document.querySelectorAll("[data-route]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();location.hash=a.dataset.route;}));
 window.addEventListener("hashchange",()=>render(location.hash.slice(1)||"dashboard"));
+const ACCOUNTS={
+  master:{pw:"residio@master",name:"Meet",role:"Founder"},
+  cofounder:{pw:"residio@cofounder",name:"Co-founder",role:"Co-founder"},
+  ceo:{pw:"residio@ceo",name:"CEO",role:"CEO"},
+  staff:{pw:"residio@staff",name:"Staff",role:"Staff"}
+};
+const ROLE_ROUTES={Founder:null,"Co-founder":null,CEO:null,Staff:["dashboard","properties","bookings","inbox","reviews","automations"]};
+let session=null;
+function applyRole(){
+  const allowed=ROLE_ROUTES[session.role];
+  document.querySelectorAll("[data-route]").forEach(a=>a.classList.toggle("hidden",!!(allowed&&!allowed.includes(a.dataset.route))));
+  const acct=document.querySelector(".acct");
+  if(acct){const ini=session.name.split(" ").map(x=>x[0]).join("").slice(0,2).toUpperCase();
+    acct.innerHTML='<div class="av">'+ini+'</div><div style="flex:1;min-width:0;"><div style="font-size:13px;font-weight:500;">'+session.name+'</div><div style="font-size:11px;color:var(--faint);">'+session.role+'</div></div><span title="Sign out" style="cursor:pointer;color:var(--muted);font-size:16px;" onclick="logout()">⎋</span>';}
+}
+function doLogin(){const u=(document.getElementById("lu").value||"").trim().toLowerCase();const p=document.getElementById("lp").value||"";const a=ACCOUNTS[u];if(a&&a.pw===p){session=Object.assign({user:u},a);try{sessionStorage.setItem("residio_session",u);}catch(e){}document.getElementById("login").classList.add("hidden");applyRole();render(cur||"dashboard");}else{document.getElementById("lerr").textContent="Wrong username or password.";}}
+function logout(){try{sessionStorage.removeItem("residio_session");}catch(e){}location.reload();}
+document.getElementById("lp").addEventListener("keydown",e=>{if(e.key==="Enter")doLogin();});
+(function(){try{const s=sessionStorage.getItem("residio_session");if(s&&ACCOUNTS[s]){session=Object.assign({user:s},ACCOUNTS[s]);document.getElementById("login").classList.add("hidden");applyRole();}}catch(e){}})();
 fillProps();render(location.hash.slice(1)||"dashboard");
 // Live iCal feed (no API key) — Autopilot writes data/live-bookings.json; use real bookings, ignore demo
 fetch("data/live-bookings.json").then(r=>r.ok?r.json():null).then(d=>{
