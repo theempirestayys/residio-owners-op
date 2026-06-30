@@ -1,0 +1,49 @@
+name: Run automations
+
+# The easier way to work with Zapier: GitHub does the brains (fetch + compute + draft),
+# then POSTs everything to ONE Zapier "Catch Hook" — Zapier fans it out to WhatsApp / Gmail /
+# the channel manager. You only connect a single webhook instead of wiring every app.
+#
+# SETUP (one time): Repo -> Settings -> Secrets and variables -> Actions -> New secret
+#   name:  ZAPIER_HOOK
+#   value: your Zapier Catch Hook URL  (Zapier -> Create Zap -> Trigger: Webhooks by Zapier -> Catch Hook)
+# That's it. No secret = it runs and logs, just doesn't send.
+on:
+  schedule:
+    - cron: "*/5 * * * *"   # every 5 min (GitHub minimum; best-effort)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch live bookings (iCal)
+        run: python3 automation/ical_fetch.py
+
+      - name: Run automations + push to Zapier
+        env:
+          ZAPIER_HOOK: ${{ secrets.ZAPIER_HOOK }}
+        run: python3 automation/run_automations.py
+
+      - name: Commit refreshed data
+        run: |
+          if [ -n "$(git status --porcelain data automation/automation_log.json)" ]; then
+            git config user.name "residio-bot"
+            git config user.email "bot@residio.local"
+            git add data automation/automation_log.json
+            git commit -m "chore: automation run"
+            git push
+          else
+            echo "No change."
+          fi

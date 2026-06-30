@@ -15,7 +15,7 @@ When you add the real xAI key + channel, the same drafts are sent instead of log
 Usage:  python3 automation/run_automations.py
 """
 from __future__ import annotations
-import json, os, sys
+import json, os, sys, urllib.request
 from datetime import datetime, timezone
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -35,6 +35,22 @@ def aria_welcome(guest, prop):
 def aria_review_reply(guest):
     name = guest.split()[0] if guest and guest[0].isalpha() else "there"
     return f"Thank you so much, {name}! It was a pleasure hosting you — come back anytime."
+
+
+def post_to_hook(payload):
+    """POST the automation results to a Zapier Catch Hook (the one thing you connect)."""
+    hook = os.environ.get("ZAPIER_HOOK", "").strip()
+    if not hook:
+        print("  (set the ZAPIER_HOOK secret to a Zapier Catch Hook URL to send these live)")
+        return
+    try:
+        data = json.dumps(payload).encode()
+        req = urllib.request.Request(hook, data=data,
+                                     headers={"Content-Type": "application/json"}, method="POST")
+        with urllib.request.urlopen(req, timeout=15) as r:
+            print(f"  posted {len(payload.get('actions', []))} actions to Zapier hook -> HTTP {r.status}")
+    except Exception as ex:
+        print(f"  hook post failed: {ex.__class__.__name__}")
 
 
 def run():
@@ -83,7 +99,9 @@ def run():
     for name, ok, detail in steps:
         print(f"   {'PASS' if ok else 'WARN'}  {name:<26} {detail}")
     print(f"\n  sample draft: \"{log['actions'][0]['draft']}\"" if log['actions'] and 'draft' in log['actions'][0] else "")
-    print(f"  wrote -> {LOG}\n")
+    print(f"  wrote -> {LOG}")
+    post_to_hook(log)
+    print()
     return 0
 
 
