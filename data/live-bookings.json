@@ -1,8 +1,17 @@
 {
-  "generated_utc": "2026-07-22 17:38:29Z",
+  "generated_utc": "2026-07-22 18:44:48Z",
   "source": "iCal (no API key)",
-  "count": 206,
+  "count": 211,
   "bookings": [
+    {
+      "g": "Easter Day",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "1 Apr",
+      "out": "2 Apr",
+      "amt": 0,
+      "st": "Confirmed"
+    },
     {
       "g": "Rama Navami",
       "p": "DEMO \u00b7 live calendar (proves fetch works)",
@@ -252,6 +261,15 @@
       "ch": "Demo",
       "in": "12 Sep",
       "out": "13 Sep",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Easter Day",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "13 Apr",
+      "out": "14 Apr",
       "amt": 0,
       "st": "Confirmed"
     },
@@ -518,24 +536,6 @@
     },
     {
       "g": "Pongal",
-      "p": "DEMO \u00b7 live calendar (proves fetch works)",
-      "ch": "Demo",
-      "in": "15 Jan",
-      "out": "16 Jan",
-      "amt": 0,
-      "st": "Confirmed"
-    },
-    {
-      "g": "Makar Sankranti",
-      "p": "DEMO \u00b7 live calendar (proves fetch works)",
-      "ch": "Demo",
-      "in": "15 Jan",
-      "out": "16 Jan",
-      "amt": 0,
-      "st": "Confirmed"
-    },
-    {
-      "g": "Makar Sankranti",
       "p": "DEMO \u00b7 live calendar (proves fetch works)",
       "ch": "Demo",
       "in": "15 Jan",
