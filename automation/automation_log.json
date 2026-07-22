@@ -1,12 +1,6 @@
 {
-  "generated_utc": "2026-07-22 20:02:08Z",
+  "generated_utc": "2026-07-22 22:29:02Z",
   "actions": [
-    {
-      "automation": "Aria \u00b7 guest reply",
-      "property": "DEMO \u00b7 live calendar (proves fetch works)",
-      "guest": "Easter Day",
-      "draft": "Hi Easter! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
-    },
     {
       "automation": "Aria \u00b7 guest reply",
       "property": "DEMO \u00b7 live calendar (proves fetch works)",
@@ -152,9 +146,10 @@
       "draft": "Hi Ganesh! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
     },
     {
-      "automation": "Aria \u00b7 review reply",
+      "automation": "Aria \u00b7 guest reply",
       "property": "DEMO \u00b7 live calendar (proves fetch works)",
-      "draft": "Thank you so much, Easter! It was a pleasure hosting you \u2014 come back anytime."
+      "guest": "Rama Navami",
+      "draft": "Hi Rama! Welcome to DEMO \u00b7 live calendar (proves fetch works). Check-in is from 3 pm \u2014 I'll share the smart-lock code at noon. Anything you need before you arrive?"
     },
     {
       "automation": "Aria \u00b7 review reply",
@@ -165,6 +160,11 @@
       "automation": "Aria \u00b7 review reply",
       "property": "DEMO \u00b7 live calendar (proves fetch works)",
       "draft": "Thank you so much, Hazarat! It was a pleasure hosting you \u2014 come back anytime."
+    },
+    {
+      "automation": "Aria \u00b7 review reply",
+      "property": "DEMO \u00b7 live calendar (proves fetch works)",
+      "draft": "Thank you so much, New! It was a pleasure hosting you \u2014 come back anytime."
     },
     {
       "automation": "Aria \u00b7 review reply",
