@@ -1,7 +1,7 @@
 {
-  "generated_utc": "2026-08-16 23:55:57Z",
+  "generated_utc": "2026-08-17 00:24:09Z",
   "source": "iCal (no API key)",
-  "count": 206,
+  "count": 205,
   "bookings": [
     {
       "g": "Rama Navami",
@@ -490,15 +490,6 @@
       "st": "Confirmed"
     },
     {
-      "g": "Independence Day",
-      "p": "DEMO \u00b7 live calendar (proves fetch works)",
-      "ch": "Demo",
-      "in": "15 Aug",
-      "out": "16 Aug",
-      "amt": 0,
-      "st": "Confirmed"
-    },
-    {
       "g": "Ramzan Id (tentative)",
       "p": "DEMO \u00b7 live calendar (proves fetch works)",
       "ch": "Demo",
@@ -536,6 +527,15 @@
     },
     {
       "g": "Makar Sankranti",
+      "p": "DEMO \u00b7 live calendar (proves fetch works)",
+      "ch": "Demo",
+      "in": "15 Jan",
+      "out": "16 Jan",
+      "amt": 0,
+      "st": "Confirmed"
+    },
+    {
+      "g": "Pongal",
       "p": "DEMO \u00b7 live calendar (proves fetch works)",
       "ch": "Demo",
       "in": "15 Jan",
